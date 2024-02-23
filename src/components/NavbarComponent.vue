@@ -1,38 +1,38 @@
 <template>
-  <nav class="navbar px-lg-5 py-lg-6 px-4 py-3">
-    <div class="container-fluid align-items-center justify-content-between px-lg-3 px-0">
+  <nav class="navbar px-lg-5 py-lg-6 px-4 py-3 position-fixed top-0 start-0 end-0">
+    <div class="container align-items-center justify-content-between px-lg-3 px-0">
       <!-- logo -->
-      <router-link to="/" class="navbar-brand d-lg-inline-block d-none">
-        <img src="../../public/logo+title.svg" alt="logo" />
+      <router-link to="/">
+        <img src="../../public/logo+title.svg" alt="logo" class="navbar-brand
+        d-lg-inline-block d-none" />
+        <img src="../../public/logo.svg" alt="logo"
+        class="navbar-brand d-lg-none d-inline-block" />
       </router-link>
-      <a class="navbar-brand d-lg-none d-inline-block" href="index.html">
-        <img src="../../public/logo.svg" alt="logo" />
-      </a>
 
       <!-- menu -->
 
       <ul class="d-lg-flex d-none">
         <li class="nav-item dropdown">
-        <router-link to="">
-          <a
-            class="nav-link px-4"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            關於照料理
-          </a>
-          <ul class="dropdown-menu mt-4" aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" href="about_team.html">品牌秉初心</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="about_food.html">品質好安心</a>
-            </li>
-          </ul>
-        </router-link>
+          <router-link to="">
+            <a
+              class="nav-link px-4"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              關於照料理
+            </a>
+            <ul class="dropdown-menu mt-4" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="about_team.html">品牌秉初心</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="about_food.html">品質好安心</a>
+              </li>
+            </ul>
+          </router-link>
         </li>
         <li class="nav-item dropdown">
           <a
@@ -89,17 +89,17 @@
       <ul class="icons d-flex align-items-center">
         <li>
           <a href="others_contact.html" class="px-4">
-            <span class="material-symbols-rounded"> maps_ugc </span>
+            <span class="material-icons"> maps_ugc </span>
           </a>
         </li>
         <li>
           <a href="shopping_shoppingBag.html" class="px-4">
-            <span class="material-symbols-rounded"> local_mall </span>
+            <span class="material-icons"> local_mall </span>
           </a>
         </li>
         <li>
           <a href="member_login.html" class="px-4">
-            <span class="material-symbols-rounded"> person </span>
+            <span class="material-icons"> person </span>
           </a>
         </li>
         <li>
@@ -112,7 +112,7 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="material-symbols-rounded"> menu </span>
+            <span class="material-icons"> menu </span>
           </a>
         </li>
       </ul>
@@ -233,7 +233,7 @@
 
   .nav-item:hover {
     .nav-link {
-      color: primary;
+      color: $primary;
     }
   }
 
@@ -248,7 +248,7 @@
     }
     li:hover {
       a {
-        color: primary;
+        color: $primary;
       }
     }
   }
@@ -261,10 +261,12 @@
       ),
       var(--white, #fff);
   }
+}
 
-  @media (max-inline-size: 992px) {
+@media (max-width: 992px) {
+  .navbar{
     img {
-      inline-size: 48px;
+      width: 48px;
     }
     .icons {
       li:nth-child(3) {
@@ -274,7 +276,7 @@
     .mobile-nav-item {
       li:hover {
         color: white;
-        background-color: primary;
+        background-color: $primary;
       }
     }
   }
