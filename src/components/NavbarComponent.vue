@@ -3,36 +3,44 @@
     <div class="container align-items-center justify-content-between px-lg-3 px-0">
       <!-- logo -->
       <router-link to="/">
-        <img src="../../public/logo+title.svg" alt="logo" class="navbar-brand
-        d-lg-inline-block d-none" />
-        <img src="../../public/logo.svg" alt="logo"
-        class="navbar-brand d-lg-none d-inline-block" />
+        <img
+          src="../../public/logo+title.svg"
+          alt="logo"
+          class="navbar-brand d-lg-inline-block d-none"
+        />
+        <img
+          src="../../public/logo.svg"
+          alt="logo"
+          class="navbar-brand d-lg-none d-inline-block"
+        />
       </router-link>
 
       <!-- menu -->
 
       <ul class="d-lg-flex d-none">
         <li class="nav-item dropdown">
-          <router-link to="">
-            <a
-              class="nav-link px-4"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              關於照料理
-            </a>
-            <ul class="dropdown-menu mt-4" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" href="about_team.html">品牌秉初心</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="about_food.html">品質好安心</a>
-              </li>
-            </ul>
-          </router-link>
+          <a
+            class="nav-link px-4"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            關於照料理
+          </a>
+          <ul class="dropdown-menu mt-4" aria-labelledby="navbarDropdown">
+            <li>
+              <router-link to="/about_brand" class="dropdown-item"
+                >品牌秉初心</router-link
+              >
+            </li>
+            <li>
+              <router-link to="/about_quality" class="dropdown-item"
+                >品質好安心</router-link
+              >
+            </li>
+          </ul>
         </li>
         <li class="nav-item dropdown">
           <a
@@ -47,18 +55,24 @@
           </a>
           <ul class="dropdown-menu mt-4" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" href="product_customize.html">客制照護餐</a>
+              <router-link to="/category_customMeal" class="dropdown-item">
+                客制照護餐
+              </router-link>
             </li>
             <li>
-              <a class="dropdown-item" href="product_protien.html">高蛋白燉飲</a>
+              <router-link to="/category_highProtein" class="dropdown-item">
+                高蛋白燉飲
+              </router-link>
             </li>
             <li>
-              <a class="dropdown-item" href="product_lunchbox.html">機能調理餐</a>
+              <router-link to="/category_lunchBox" class="dropdown-item">
+                機能調理餐
+              </router-link>
             </li>
           </ul>
         </li>
         <li class="nav-item">
-          <a href="shopping_mall.html" class="nav-link px-4">線上買好料</a>
+          <router-link to="/productsList" class="nav-link px-4">線上買好料</router-link>
         </li>
         <li class="nav-item dropdown">
           <a
@@ -88,19 +102,19 @@
       <!-- icon -->
       <ul class="icons d-flex align-items-center">
         <li>
-          <a href="others_contact.html" class="px-4">
-            <span class="material-icons"> maps_ugc </span>
-          </a>
+          <router-link to="/contact">
+            <span class="material-icons px-4"> maps_ugc </span>
+          </router-link>
         </li>
         <li>
-          <a href="shopping_shoppingBag.html" class="px-4">
+          <router-link to="/cart" class="px-4">
             <span class="material-icons"> local_mall </span>
-          </a>
+          </router-link>
         </li>
         <li>
-          <a href="member_login.html" class="px-4">
+          <router-link to="/userInfo" class="px-4">
             <span class="material-icons"> person </span>
-          </a>
+          </router-link>
         </li>
         <li>
           <a
@@ -264,7 +278,7 @@
 }
 
 @media (max-width: 992px) {
-  .navbar{
+  .navbar {
     img {
       width: 48px;
     }

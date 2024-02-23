@@ -2,17 +2,28 @@
 // 外部引入
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
+
+// Loading
 import LoadingOverlay from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/css/index.css';
+
+// axios
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+
+// vee validate
 import {
   configure, defineRule, Form, Field, ErrorMessage,
 } from 'vee-validate';
 import * as AllRules from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
+
+// material icon
 import 'material-icons/iconfont/material-icons.css';
+
+// bootstrap
+import * as bootstrap from 'bootstrap';
 
 // 內部引入SRC
 import App from './App.vue';
@@ -37,6 +48,7 @@ app.use(router);
 app.component('LoadingComponent', LoadingOverlay);
 app.use(VueAxios, axios);
 app.use(config);
+app.use(bootstrap);
 app.component('VForm', Form);
 app.component('VField', Field);
 app.component('ErrorMessage', ErrorMessage);
