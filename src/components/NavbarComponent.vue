@@ -1,6 +1,10 @@
 <template>
-  <nav class="navbar px-lg-5 py-lg-6 px-4 py-3 position-fixed top-0 start-0 end-0">
-    <div class="container align-items-center justify-content-between px-lg-3 px-0">
+  <nav
+    class="navbar px-lg-5 py-lg-6 px-4 py-3 position-fixed top-0 start-0 end-0"
+  >
+    <div
+      class="container align-items-center justify-content-between px-lg-3 px-0"
+    >
       <!-- logo -->
       <router-link to="/">
         <img
@@ -72,7 +76,9 @@
           </ul>
         </li>
         <li class="nav-item">
-          <router-link to="/productsList" class="nav-link px-4">線上買好料</router-link>
+          <router-link to="/productsList" class="nav-link px-4"
+            >線上買好料</router-link
+          >
         </li>
         <li class="nav-item dropdown">
           <a
@@ -85,17 +91,26 @@
           >
             大家怎麼說
           </a>
-          <ul class="dropdown-menu text-center mt-4" aria-labelledby="navbarDropdown">
+          <ul
+            class="dropdown-menu text-center mt-4"
+            aria-labelledby="navbarDropdown"
+          >
             <li>
-              <a class="dropdown-item" href="article_healthNews.html">健康專欄</a>
+              <router-link to="/news" class="dropdown-item"
+                >健康專欄</router-link
+              >
             </li>
             <li>
-              <a class="dropdown-item" href="article_feedback.html">成功案例</a>
+              <router-link to="/feedback" class="dropdown-item"
+                >成功案例</router-link
+              >
             </li>
           </ul>
         </li>
         <li class="nav-item">
-          <a href="others_manual.html" class="nav-link px-4">料理怎麼買</a>
+          <router-link to="/notes" class="nav-link px-4"
+            >料理怎麼買</router-link
+          >
         </li>
       </ul>
 
@@ -137,6 +152,7 @@
     <div
       class="mobile-menu collapse d-lg-none position-absolute top-100 end-0 start-0"
       id="navbarNav"
+      ref="mobileNavbar"
     >
       <div class="container vh-100">
         <ul class="navbar-nav mt-4 text-center">
@@ -154,10 +170,16 @@
             <div class="collapse" id="about">
               <ul class="d-flex justify-content-center mb-4">
                 <li class="rounded me-2">
-                  <a class="dropdown-item py-1 px-3" href="about_team.html">品牌秉初心</a>
+                  <router-link to="/about_brand" class="dropdown-item py-1 px-3"
+                    >品牌秉初心</router-link
+                  >
                 </li>
                 <li class="rounded">
-                  <a class="dropdown-item py-1 px-3" href="about_food.html">品質好安心</a>
+                  <router-link
+                    to="/about_quality"
+                    class="dropdown-item py-1 px-3"
+                    >品質好安心</router-link
+                  >
                 </li>
               </ul>
             </div>
@@ -176,25 +198,33 @@
             <div class="collapse" id="product">
               <ul class="d-flex justify-content-center mb-4">
                 <li class="me-2 rounded">
-                  <a class="dropdown-item py-1 px-3" href="product_customize.html"
-                    >客制照護餐</a
+                  <router-link
+                    to="/category_customMeal"
+                    class="dropdown-item py-1 px-3"
+                    >客制照護餐</router-link
                   >
                 </li>
                 <li class="me-2 rounded">
-                  <a class="dropdown-item py-1 px-3" href="product_protien.html"
-                    >高蛋白燉飲</a
+                  <router-link
+                    to="/category_highProtein"
+                    class="dropdown-item py-1 px-3"
+                    >高蛋白燉飲</router-link
                   >
                 </li>
                 <li class="rounded">
-                  <a class="dropdown-item py-1 px-3" href="product_lunchbox.html"
-                    >機能調理餐</a
+                  <router-link
+                    to="/category_lunchBox"
+                    class="dropdown-item py-1 px-3"
+                    >機能調理餐</router-link
                   >
                 </li>
               </ul>
             </div>
           </li>
           <li class="nav-item border-bottom">
-            <a href="shopping_mall.html" class="nav-link fs-4 py-4">線上買好料</a>
+            <router-link to="/productsList" class="nav-link fs-4 py-4"
+              >線上買好料</router-link
+            >
           </li>
           <li class="mobile-nav-item nav-item dropdown border-bottom">
             <a
@@ -210,26 +240,45 @@
             <div class="collapse" id="article">
               <ul class="d-flex justify-content-center mb-4">
                 <li class="me-2 rounded">
-                  <a class="dropdown-item py-1 px-3" href="article_healthNews.html"
-                    >健康專欄</a
+                  <router-link to="/news" class="dropdown-item py-1 px-3"
+                    >健康專欄</router-link
                   >
                 </li>
                 <li class="rounded">
-                  <a class="dropdown-item py-1 px-3" href="article_feedback.html"
-                    >成功案例</a
+                  <router-link to="/feedback" class="dropdown-item py-1 px-3"
+                    >成功案例</router-link
                   >
                 </li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a href="others_manual.html" class="nav-link fs-4 py-4">料理怎麼買</a>
+            <router-link to="/notes" class="nav-link fs-4 py-4"
+              >料理怎麼買</router-link
+            >
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+import { Dropdown } from 'bootstrap';
+
+export default {
+  data() {
+    return {
+      mobileNavbar: null,
+    };
+  },
+  mounted() {
+    console.log(this.$refs.mobileNavbar);
+    this.mobileNavbar = new Dropdown(this.$refs.mobileNavbar);
+    this.mobileNavbar.show();
+  },
+};
+</script>
 
 <style lang="scss">
 .navbar {
@@ -275,6 +324,10 @@
       ),
       var(--white, #fff);
   }
+}
+
+.active {
+  color: $primary;
 }
 
 @media (max-width: 992px) {

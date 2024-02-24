@@ -38,31 +38,42 @@ const routes = [
         name: 'LunchBox',
         component: () => import('../views/Category/LunchBox.vue'),
       },
+      // 線上買好料
       {
         path: '/productsList',
-        name: 'About',
-        component: () => import('../views/ProductList.vue'),
+        name: 'ProductList',
+        component: () => import('../views/Product/ProductList.vue'),
+      },
+      // 大家怎麼說
+      {
+        path: '/feedback',
+        name: 'Feedback',
+        component: () => import('../views/Comment/CustomerFeedback.vue'),
       },
       {
-        path: '/comment',
-        name: 'Category',
-        component: () => import('../views/CustomerComment.vue'),
+        path: '/news',
+        name: 'News',
+        component: () => import('../views/Comment/ArticleNews.vue'),
       },
+      // 料理怎麼買
       {
         path: '/notes',
         name: 'Category',
         component: () => import('../views/ShoppingNotes.vue'),
       },
+      // 聯絡我們
       {
         path: '/contact',
         name: 'Contact',
         component: () => import('../views/ContactUs.vue'),
       },
+      // 購物車
       {
         path: '/cart',
         name: 'Cart',
         component: () => import('../views/ShoppingCart.vue'),
       },
+      // 帳戶資料
       {
         path: '/userInfo',
         name: 'UserInfo',
