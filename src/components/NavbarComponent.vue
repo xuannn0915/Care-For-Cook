@@ -1,9 +1,8 @@
 <template>
-  <nav
-    class="navbar px-lg-5 py-lg-6 px-4 py-3 position-fixed top-0 start-0 end-0"
-  >
+  <nav class="navbar px-lg-5 py-lg-6 px-4 py-3 position-fixed top-0 start-0 end-0">
+  <div class="position-relative vw-100">
     <div
-      class="container align-items-center justify-content-between px-lg-3 px-0"
+      class="container d-flex align-items-center justify-content-between px-lg-3 px-0"
     >
       <!-- logo -->
       <router-link to="/">
@@ -76,9 +75,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <router-link to="/productsList" class="nav-link px-4"
-            >線上買好料</router-link
-          >
+          <router-link to="/productsList" class="nav-link px-4">線上買好料</router-link>
         </li>
         <li class="nav-item dropdown">
           <a
@@ -91,26 +88,17 @@
           >
             大家怎麼說
           </a>
-          <ul
-            class="dropdown-menu text-center mt-4"
-            aria-labelledby="navbarDropdown"
-          >
+          <ul class="dropdown-menu text-center mt-4" aria-labelledby="navbarDropdown">
             <li>
-              <router-link to="/news" class="dropdown-item"
-                >健康專欄</router-link
-              >
+              <router-link to="/news" class="dropdown-item">健康專欄</router-link>
             </li>
             <li>
-              <router-link to="/feedback" class="dropdown-item"
-                >成功案例</router-link
-              >
+              <router-link to="/feedback" class="dropdown-item">成功案例</router-link>
             </li>
           </ul>
         </li>
         <li class="nav-item">
-          <router-link to="/notes" class="nav-link px-4"
-            >料理怎麼買</router-link
-          >
+          <router-link to="/notes" class="nav-link px-4">料理怎麼買</router-link>
         </li>
       </ul>
 
@@ -143,140 +131,211 @@
           >
             <span class="material-icons"> menu </span>
           </a>
+
+          <ul
+            class="mobile-menu collapse text-center vw-100 vh-100 position-absolute start-0 top-100"
+            id="navbarNav"
+          >
+            <li
+              class="border-bottom border-0"
+              @mouseenter="mobileCollapse = false"
+              @mouseleave="mobileCollapse = true"
+            >
+              <a class="nav-link fs-4 py-4" href="#about" role="button"> 關於照料理 </a>
+              <div :class="{ collapse: mobileCollapse }" id="about">
+                <ul class="d-flex justify-content-center mb-4">
+                  <li class="rounded me-2">
+                    <router-link to="/about_brand" class="dropdown-item py-1 px-3"
+                      >品牌秉初心</router-link
+                    >
+                  </li>
+                  <li class="rounded">
+                    <router-link to="/about_quality" class="dropdown-item py-1 px-3"
+                      >品質好安心</router-link
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mobile-nav-item nav-item dropdown border-0 border-bottom">
+              <a
+                class="nav-link fs-4 py-4"
+                href="#product"
+                data-bs-toggle="collapse"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                好料報你知
+              </a>
+              <div class="collapse" id="product">
+                <ul class="d-flex justify-content-center mb-4">
+                  <li class="me-2 rounded">
+                    <router-link to="/category_customMeal" class="dropdown-item py-1 px-3"
+                      >客制照護餐</router-link
+                    >
+                  </li>
+                  <li class="me-2 rounded">
+                    <router-link
+                      to="/category_highProtein"
+                      class="dropdown-item py-1 px-3"
+                      >高蛋白燉飲</router-link
+                    >
+                  </li>
+                  <li class="rounded">
+                    <router-link to="/category_lunchBox" class="dropdown-item py-1 px-3"
+                      >機能調理餐</router-link
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item border-bottom border-0">
+              <router-link to="/productsList" class="nav-link fs-4 py-4"
+                >線上買好料</router-link
+              >
+            </li>
+            <li class="mobile-nav-item nav-item dropdown border-bottom border-0">
+              <a
+                class="nav-link fs-4 py-4"
+                href="#article"
+                data-bs-toggle="collapse"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                大家怎麼說
+              </a>
+              <div class="collapse" id="article">
+                <ul class="d-flex justify-content-center mb-4">
+                  <li class="me-2 rounded">
+                    <router-link to="/news" class="dropdown-item py-1 px-3"
+                      >健康專欄</router-link
+                    >
+                  </li>
+                  <li class="rounded">
+                    <router-link to="/feedback" class="dropdown-item py-1 px-3"
+                      >成功案例</router-link
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <router-link to="/notes" class="nav-link fs-4 py-4">料理怎麼買</router-link>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
-
-    <!-- mobile menu -->
-
-    <div
-      class="mobile-menu collapse d-lg-none position-absolute top-100 end-0 start-0"
-      id="navbarNav"
-      ref="mobileNavbar"
-    >
-      <div class="container vh-100">
-        <ul class="navbar-nav mt-4 text-center">
-          <li class="mobile-nav-item nav-item dropdown border-bottom">
-            <a
-              class="nav-link fs-4 py-4"
-              href="#about"
-              data-bs-toggle="collapse"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              關於照料理
-            </a>
-            <div class="collapse" id="about">
-              <ul class="d-flex justify-content-center mb-4">
-                <li class="rounded me-2">
-                  <router-link to="/about_brand" class="dropdown-item py-1 px-3"
-                    >品牌秉初心</router-link
-                  >
-                </li>
-                <li class="rounded">
-                  <router-link
-                    to="/about_quality"
-                    class="dropdown-item py-1 px-3"
-                    >品質好安心</router-link
-                  >
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="mobile-nav-item nav-item dropdown border-bottom">
-            <a
-              class="nav-link fs-4 py-4"
-              href="#product"
-              data-bs-toggle="collapse"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              好料報你知
-            </a>
-            <div class="collapse" id="product">
-              <ul class="d-flex justify-content-center mb-4">
-                <li class="me-2 rounded">
-                  <router-link
-                    to="/category_customMeal"
-                    class="dropdown-item py-1 px-3"
-                    >客制照護餐</router-link
-                  >
-                </li>
-                <li class="me-2 rounded">
-                  <router-link
-                    to="/category_highProtein"
-                    class="dropdown-item py-1 px-3"
-                    >高蛋白燉飲</router-link
-                  >
-                </li>
-                <li class="rounded">
-                  <router-link
-                    to="/category_lunchBox"
-                    class="dropdown-item py-1 px-3"
-                    >機能調理餐</router-link
-                  >
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item border-bottom">
-            <router-link to="/productsList" class="nav-link fs-4 py-4"
-              >線上買好料</router-link
-            >
-          </li>
-          <li class="mobile-nav-item nav-item dropdown border-bottom">
-            <a
-              class="nav-link fs-4 py-4"
-              href="#article"
-              data-bs-toggle="collapse"
-              role="button"
-              aria-expanded="false"
-              aria-controls="collapseExample"
-            >
-              大家怎麼說
-            </a>
-            <div class="collapse" id="article">
-              <ul class="d-flex justify-content-center mb-4">
-                <li class="me-2 rounded">
-                  <router-link to="/news" class="dropdown-item py-1 px-3"
-                    >健康專欄</router-link
-                  >
-                </li>
-                <li class="rounded">
-                  <router-link to="/feedback" class="dropdown-item py-1 px-3"
-                    >成功案例</router-link
-                  >
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <router-link to="/notes" class="nav-link fs-4 py-4"
-              >料理怎麼買</router-link
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
+  </div>
   </nav>
+
+  <!-- <div class="position-relative">
+    <ul
+      class="mobile-menu collapse text-center mt-5 vw-100 vh-100 position-absolute start-0"
+      id="navbarNav"
+    >
+      <li
+        class="border-bottom border-0"
+        @mouseenter="mobileCollapse = false"
+        @mouseleave="mobileCollapse = true"
+      >
+        <a class="nav-link fs-4 py-4" href="#about" role="button"> 關於照料理 </a>
+        <div :class="{ collapse: mobileCollapse }" id="about">
+          <ul class="d-flex justify-content-center mb-4">
+            <li class="rounded me-2">
+              <router-link to="/about_brand" class="dropdown-item py-1 px-3"
+                >品牌秉初心</router-link
+              >
+            </li>
+            <li class="rounded">
+              <router-link to="/about_quality" class="dropdown-item py-1 px-3"
+                >品質好安心</router-link
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="mobile-nav-item nav-item dropdown border-0 border-bottom">
+        <a
+          class="nav-link fs-4 py-4"
+          href="#product"
+          data-bs-toggle="collapse"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          好料報你知
+        </a>
+        <div class="collapse" id="product">
+          <ul class="d-flex justify-content-center mb-4">
+            <li class="me-2 rounded">
+              <router-link to="/category_customMeal" class="dropdown-item py-1 px-3"
+                >客制照護餐</router-link
+              >
+            </li>
+            <li class="me-2 rounded">
+              <router-link to="/category_highProtein" class="dropdown-item py-1 px-3"
+                >高蛋白燉飲</router-link
+              >
+            </li>
+            <li class="rounded">
+              <router-link to="/category_lunchBox" class="dropdown-item py-1 px-3"
+                >機能調理餐</router-link
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item border-bottom border-0">
+        <router-link to="/productsList" class="nav-link fs-4 py-4"
+          >線上買好料</router-link
+        >
+      </li>
+      <li class="mobile-nav-item nav-item dropdown border-bottom border-0">
+        <a
+          class="nav-link fs-4 py-4"
+          href="#article"
+          data-bs-toggle="collapse"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          大家怎麼說
+        </a>
+        <div class="collapse" id="article">
+          <ul class="d-flex justify-content-center mb-4">
+            <li class="me-2 rounded">
+              <router-link to="/news" class="dropdown-item py-1 px-3"
+                >健康專欄</router-link
+              >
+            </li>
+            <li class="rounded">
+              <router-link to="/feedback" class="dropdown-item py-1 px-3"
+                >成功案例</router-link
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <router-link to="/notes" class="nav-link fs-4 py-4">料理怎麼買</router-link>
+      </li>
+    </ul>
+  </div> -->
 </template>
 
 <script>
-import { Dropdown } from 'bootstrap';
-
 export default {
   data() {
     return {
-      mobileNavbar: null,
+      openNavbar: false,
+      mobileCollapse: true,
     };
   },
-  mounted() {
-    console.log(this.$refs.mobileNavbar);
-    this.mobileNavbar = new Dropdown(this.$refs.mobileNavbar);
-    this.mobileNavbar.show();
-  },
+  methods: {},
+  mounted() {},
 };
 </script>
 
@@ -310,13 +369,16 @@ export default {
       border-inline-end: 1px solid rgba(0, 0, 0, 0.1);
     }
     li:hover {
-      a {
+      span {
         color: $primary;
       }
     }
   }
 
   .mobile-menu {
+    position: absolute;
+    left: 0;
+    top: 0;
     background: linear-gradient(
         0deg,
         rgba(254, 227, 197, 0.1) 0%,
