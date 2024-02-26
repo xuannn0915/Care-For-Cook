@@ -4,87 +4,87 @@ const routes = [
   {
     path: '/',
     name: 'FrontPage',
-    component: () => import('../views/FrontPage.vue'),
+    component: () => import('../views/Fronted/FrontPage.vue'),
     children: [
       {
         path: '/',
         name: 'Home',
-        component: () => import('../views/HomePage.vue'),
+        component: () => import('../views/Fronted/HomePage.vue'),
       },
       // 關於櫂料理
       {
         path: '/about_brand',
         name: 'Brand',
-        component: () => import('../views/About/AboutBrand.vue'),
+        component: () => import('../views/Fronted/About/AboutBrand.vue'),
       },
       {
         path: '/about_quality',
         name: 'Quality',
-        component: () => import('../views/About/AboutQuality.vue'),
+        component: () => import('../views/Fronted/About/AboutQuality.vue'),
       },
       // 好料報你知
       {
         path: '/category_customMeal',
         name: 'CustomMeal',
-        component: () => import('../views/Category/CustomMeal.vue'),
+        component: () => import('../views/Fronted/Category/CustomMeal.vue'),
       },
       {
         path: '/category_highProtein',
         name: 'HighProtein',
-        component: () => import('../views/Category/HighProtein.vue'),
+        component: () => import('../views/Fronted/Category/HighProtein.vue'),
       },
       {
         path: '/category_lunchBox',
         name: 'LunchBox',
-        component: () => import('../views/Category/LunchBox.vue'),
+        component: () => import('../views/Fronted/Category/LunchBox.vue'),
       },
       // 線上買好料
       {
         path: '/productsList',
         name: 'ProductList',
-        component: () => import('../views/Product/ProductList.vue'),
+        component: () => import('../views/Fronted/Product/ProductList.vue'),
       },
       // 大家怎麼說
       {
         path: '/feedback',
         name: 'Feedback',
-        component: () => import('../views/Comment/CustomerFeedback.vue'),
+        component: () => import('../views/Fronted/Comment/CustomerFeedback.vue'),
       },
       {
         path: '/news',
         name: 'News',
-        component: () => import('../views/Comment/ArticleNews.vue'),
+        component: () => import('../views/Fronted/Comment/ArticleNews.vue'),
       },
       // 料理怎麼買
       {
         path: '/notes',
         name: 'Category',
-        component: () => import('../views/ShoppingNotes.vue'),
+        component: () => import('../views/Fronted/ShoppingNotes.vue'),
       },
       // 聯絡我們
       {
         path: '/contact',
         name: 'Contact',
-        component: () => import('../views/ContactUs.vue'),
+        component: () => import('../views/Fronted/ContactUs.vue'),
       },
       // 購物車
       {
         path: '/cart',
         name: 'Cart',
-        component: () => import('../views/ShoppingCart.vue'),
+        component: () => import('../views/Fronted/ShoppingCart.vue'),
       },
       // 帳戶資料
       {
         path: '/userInfo',
         name: 'UserInfo',
-        component: () => import('../views/UserInfo.vue'),
+        component: () => import('../views/Fronted/UserInfo.vue'),
       },
     ],
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import('../views/LoginPage.vue'),
+    component: () => import('../views/Fronted/LoginPage.vue'),
   },
   {
     path: '/admin',
