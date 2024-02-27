@@ -138,11 +138,12 @@
   </nav>
 
   <!-- mobile navbar -->
-  <div class="position-relative" ref="mobileNavbar">
+  <div class="position-relative">
     <ul
       class="mobile-menu collapse text-center w-100 vh-100
       position-absolute start-0 top-100 accordion"
       id="navbarNav"
+      ref="mobileNavbar"
     >
       <li class="mobile-nav-item nav-item border-0 border-bottom">
         <div class="accordion-item">
@@ -163,18 +164,22 @@
             aria-labelledby="headingOne"
             data-bs-parent="#navbarNav"
           >
-            <div class="accordion-body mb-3 pt-0">
-                  <router-link
-                    to="/about_brand"
-                    class="btn btn-pill bg-primary text-white py-1 px-3  me-2"
-                    >品牌秉初心</router-link
-                  >
-                  <router-link
-                    to="/about_quality"
-                    class="btn btn-pill bg-primary text-white py-1 px-3"
-                    >品質好安心</router-link
-                  >
-            </div>
+            <ul class="accordion-body mb-3 pt-0 d-flex align-items-center justify-content-center">
+              <li @click="href=this.$route.href">
+                <router-link
+                  to="/about_brand"
+                  class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
+                  >品牌秉初心</router-link
+                >
+              </li>
+              <li @click="href=this.$route.href">
+                <router-link
+                  to="/about_quality"
+                  class="btn btn-pill bg-primary text-white py-1 px-3"
+                  >品質好安心</router-link
+                >
+              </li>
+            </ul>
           </div>
         </div>
       </li>
@@ -189,7 +194,7 @@
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-            好料報你知
+              好料報你知
             </span>
           </p>
           <div
@@ -198,29 +203,39 @@
             aria-labelledby="headingOne"
             data-bs-parent="#navbarNav"
           >
-            <div class="accordion-body mb-3 pt-0">
-              <router-link
-                to="/category_customMeal"
-                class="btn btn-pill bg-primary text-white py-1 px-3"
-                >客制照護餐</router-link
-              >
-              <router-link
-                to="/category_highProtein"
-                class="btn btn-pill bg-primary text-white py-1 px-3"
-                >高蛋白燉飲</router-link
-              >
-              <router-link
-                to="/category_lunchBox"
-                class="btn btn-pill bg-primary text-white py-1 px-3"
-                >機能調理餐</router-link
-              >
-            </div>
+            <ul class="accordion-body mb-3 pt-0 d-flex align-items-center justify-content-center">
+              <li @click="href=this.$route.href">
+                <router-link
+                  to="/category_customMeal"
+                  class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
+                  >客制照護餐</router-link
+                >
+              </li>
+              <li @click="href=this.$route.href">
+                <router-link
+                  to="/category_highProtein"
+                  class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
+                  @click="href=this.$route.href"
+                  >高蛋白燉飲</router-link
+                >
+              </li>
+              <li @click="href=this.$route.href">
+                <router-link
+                  to="/category_lunchBox"
+                  class="btn btn-pill bg-primary text-white py-1 px-3"
+                  @click="href=this.$route.href"
+                  >機能調理餐</router-link
+                >
+              </li>
+            </ul>
           </div>
         </div>
       </li>
 
-      <li class="nav-item border-bottom border-0">
-        <router-link to="/productsList" class="nav-link fs-4 py-4"
+      <li class="nav-item border-bottom border-0" @click="href=this.$route.href">
+        <router-link
+          to="/productsList"
+          class="nav-link fs-4 py-4"
           >線上買好料</router-link
         >
       </li>
@@ -235,7 +250,7 @@
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-            大家怎麼說
+              大家怎麼說
             </span>
           </p>
           <div
@@ -244,22 +259,30 @@
             aria-labelledby="headingOne"
             data-bs-parent="#navbarNav"
           >
-            <div class="accordion-body mb-3 pt-0">
-              <router-link to="/news" class="btn btn-pill bg-primary text-white py-1 px-3"
-                >健康專欄</router-link
-              >
-              <router-link
-                to="/feedback"
-                class="btn btn-pill bg-primary text-white py-1 px-3"
-                >成功案例</router-link
-              >
-            </div>
+            <ul class="accordion-body mb-3 pt-0 d-flex align-items-center justify-content-center">
+              <li @click="href=this.$route.href">
+                <router-link
+                  to="/news"
+                  class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
+                  >健康專欄</router-link
+                >
+              </li>
+              <li @click="href=this.$route.href">
+                <router-link
+                  to="/feedback"
+                  class="btn btn-pill bg-primary text-white py-1 px-3"
+                  >成功案例</router-link
+                >
+              </li>
+            </ul>
           </div>
         </div>
       </li>
 
-      <li class="nav-item">
-        <router-link to="/notes" class="nav-link fs-4 py-4">料理怎麼買</router-link>
+      <li class="nav-item" @click="href=this.$route.href">
+        <router-link to="/notes" class="nav-link fs-4 py-4"
+          >料理怎麼買</router-link
+        >
       </li>
     </ul>
   </div>
@@ -271,15 +294,21 @@ import { Collapse } from 'bootstrap';
 export default {
   data() {
     return {
-      openNavbar: null,
-      mobileCollapse: true,
+      mobileNavbar: null,
+      href: null,
     };
   },
-  methods: {},
+  methods: {
+  },
+  watch: {
+    href() {
+      this.mobileNavbar = new Collapse(this.$refs.mobileNavbar, {
+        toggle: true,
+      });
+    },
+  },
   mounted() {
-    this.openNavbar = new Collapse(this.$refs.mobileNavbar, {
-      toggle: false,
-    });
+    this.href = null;
   },
 };
 </script>
@@ -330,16 +359,17 @@ export default {
     ),
     var(--white, #fff);
 
-  a:hover,span:hover {
+  a:hover,
+  span:hover {
     color: $primary;
   }
 
-  .accordion-button::after{
+  .accordion-button::after {
     content: '';
     background-image: none;
   }
 
-  span{
+  span {
     cursor: pointer;
   }
 }
