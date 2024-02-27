@@ -79,6 +79,12 @@ const routes = [
         name: 'UserInfo',
         component: () => import('../views/Fronted/UserInfo.vue'),
       },
+      // 常見問題
+      {
+        path: '/faq',
+        name: 'Question',
+        component: () => import('../views/Fronted/QuestionPage.vue'),
+      },
     ],
   },
   {

@@ -25,6 +25,10 @@ import 'material-icons/iconfont/material-icons.css';
 // bootstrap
 import * as bootstrap from 'bootstrap';
 
+// swiper
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+
 // 內部引入SRC
 import App from './App.vue';
 import router from './router';
@@ -49,6 +53,7 @@ app.component('LoadingComponent', LoadingOverlay);
 app.use(VueAxios, axios);
 app.use(config);
 app.use(bootstrap);
+app.use(Swiper, SwiperSlide);
 app.component('VForm', Form);
 app.component('VField', Field);
 app.component('ErrorMessage', ErrorMessage);
