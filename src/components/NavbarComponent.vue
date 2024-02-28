@@ -7,12 +7,12 @@
         <!-- logo -->
         <router-link to="/">
           <img
-            src="../../public/logo+title.svg"
+            src="../assets/images/logo+title.svg"
             alt="logo"
             class="navbar-brand d-lg-inline-block d-none"
           />
           <img
-            src="../../public/logo.svg"
+            src="../assets/images/logo.svg"
             alt="logo"
             class="navbar-brand d-lg-none d-inline-block"
           />

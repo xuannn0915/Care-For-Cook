@@ -1,20 +1,59 @@
 <template>
+  <!-- 第一區：banner -->
   <main
     class="index_banner py-lg-6 py-4
     d-flex flex-lg-row flex-column align-items-center position-relative h-100"
   >
     <!-- Swiper -->
-    <swiper
-      :slides-per-view="3"
-      :space-between="50"
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
+    <swiper-wrapper
+      :spaceBetween="24"
+      :centeredSlides="true"
+      :slidesPerView="2.5"
+      :loop="true"
+      :autoplay="{
+        delay: 2500,
+        disableOnInteraction: false,
+      }"
+      :breakpoints="{
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1.5,
+          spaceBetween: 20,
+        },
+        // when window width is >= 992px
+        992: {
+          slidesPerView: 2.5,
+          spaceBetween: 30,
+        },
+      }"
+      :modules="modules"
+      class="swiper d-flex mx-lg-0"
     >
-      <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      ...
-    </swiper>
+      <swiper-slide class="swiper-slide" lazy="true">
+        <img src="../../../public/home/banner1.png" alt="banner" class="rounded" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide" lazy="true">
+        <img src="../../../public/home/banner2.png" alt="banner" class="rounded" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide" lazy="true">
+        <img src="../../../public/home/banner3.png" alt="banner" class="rounded" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src="../../../public/home/banner4.png" alt="banner" class="rounded" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src="../../../public/home/banner5.png" alt="banner" class="rounded" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src="../../../public/home/banner6.png" alt="banner" class="rounded" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src="../../../public/home/banner7.png" alt="banner" class="rounded" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src="../../../public/home/banner8.png" alt="banner" class="rounded" />
+      </swiper-slide>
+    </swiper-wrapper>
     <div class="banner-wording">
       <h1 class="text-primary fw-bold mb-2 fs-lg-1 fs-2">
         <p class="comma">全方位</p>
@@ -23,29 +62,62 @@
       <p class="fs-lg-4 fs-5 mb-6">
         以健康為主，營養專業為輔，從日常餐飲到特殊照護滿足你各階段需求
       </p>
-      <a
-        href="shopping_mall.html"
+      <router-link
+        to="/productsList"
         class="btn btn-primary d-inline-flex align-items-center"
       >
         線上購物
-        <span class="material-symbols-rounded"> east </span>
-      </a>
+        <span class="material-icons"> east </span>
+      </router-link>
     </div>
   </main>
+
+  <!-- 第二區：painpoint -->
+  <section class="painPoint py-lg-9 py-6">
+    <div class="container">
+      <div class="row flex-lg-row flex-column-reverse align-items-center">
+        <div class="col-lg-7">
+            <img
+              src="../../../public/home/painpoint.svg"
+              alt="painpoint"
+              class="character d-lg-block d-none"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            />
+            <img
+              src="../../../public/home/painpoint_mobile.svg"
+              alt="painpoint"
+              class="character d-lg-none d-block"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            />
+        </div>
+        <div
+          class="col-lg-4 ms-auto text-lg-start text-center mb-lg-0 mb-9"
+          data-aos="zoom-in-up"
+          data-aos-duration="1500"
+          data-aos-offset="100"
+        >
+          <h2 class="text-dark fs-lg-2 fs-4 mb-lg-7 mb-4">你是否....</h2>
+          <p class="fs-lg-3 fs-5 mb-lg-7 mb-4">
+            常煩惱三餐該怎麼辦？ <br />
+            不知道該怎麼吃才能補充營養？<br />
+            如果這正是你的心聲
+          </p>
+          <h2 class="text-primary fw-bold fs-lg-2 fs-4">那你絕不能錯過照料理！</h2>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
+import { Autoplay } from 'swiper/modules';
+
 export default {
   setup() {
-    const onSwiper = (swiper) => {
-      console.log(swiper);
-    };
-    const onSlideChange = () => {
-      console.log('slide change');
-    };
     return {
-      onSwiper,
-      onSlideChange,
+      modules: [Autoplay],
     };
   },
 };
@@ -59,7 +131,7 @@ export default {
     z-index: 1;
     width: 70%;
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       z-index: 2;
@@ -117,22 +189,6 @@ export default {
 
 .painPoint {
   @include bg_secondary;
-  .character {
-    max-width: 448px;
-    margin-left: 72px;
-  }
-  .bubble {
-    max-width: 300px;
-  }
-  @media (max-width: 992px) {
-    .character {
-      width: 233px;
-      margin-left: 40px;
-    }
-    .bubble {
-      width: 150px;
-    }
-  }
 }
 
 .service {
@@ -174,7 +230,7 @@ export default {
 
   .product {
     .pic-box::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: 0;
@@ -189,7 +245,7 @@ export default {
 
     .item:hover {
       .pic-box::after {
-        content: '餐點非完全符合每個客戶狀況，請評估自身狀況與餐點營養成分後再進行購買';
+        content: "餐點非完全符合每個客戶狀況，請評估自身狀況與餐點營養成分後再進行購買";
         color: $white;
         opacity: 1;
         padding: 0 48px;
@@ -265,8 +321,8 @@ export default {
 .home_slogan {
   padding-bottom: 124px;
   .wording::before {
-    content: '';
-    background-image: url('https://raw.githubusercontent.com/xuannn0915/CareForCook/32bb4620627ff5d81609d364c60615df4a545b62/assets/images/home/drop.svg');
+    content: "";
+    background-image: url("https://raw.githubusercontent.com/xuannn0915/CareForCook/32bb4620627ff5d81609d364c60615df4a545b62/assets/images/home/drop.svg");
     display: block;
     background-size: contain;
     margin-bottom: 40px;

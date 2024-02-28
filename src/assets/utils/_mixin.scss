@@ -1,0 +1,185 @@
+// background
+@mixin bg_secondary {
+  background-color: rgba($secondary, 10%);
+}
+
+@mixin bg_wave($desktop_place, $mobile_place) {
+  background-image: url("https://raw.githubusercontent.com/xuannn0915/CareForCook/e4ca5a23e7f99ecbc70a5224b65522239e92a972/assets/images/home/bottom_lineargrdient-1.svg"),
+    url("https://raw.githubusercontent.com/xuannn0915/CareForCook/e4ca5a23e7f99ecbc70a5224b65522239e92a972/assets/images/home/bottom_lineargrdient-2.svg");
+  display: block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom center, bottom $desktop_place center;
+
+  @media (max-width:992px) {
+    background-position: bottom center, bottom $mobile_place center;
+  }
+}
+
+@mixin bg_blur($desktop-x, $desktop-y, $mobile-x, $mobile-y){
+  background-image: url('https://raw.githubusercontent.com/xuannn0915/CareForCook/d8da4393b0ed6c3878c6a1837ceb2c3a1448d8a1/assets/images/bg_blurCircle.svg');
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: $desktop-x $desktop-y;
+  @media (max-width:992px) {
+    background-position: $mobile-x $mobile-y;
+  }
+}
+
+
+// transitioin
+@mixin fadeInOut ($x, $y, $opacity, $duration:1s){
+  opacity: $opacity;
+  transition: $duration ease-in-out;
+  transform: translate($x, $y);
+}
+
+@mixin mask($height, $opacity){
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: $height;
+  opacity: $opacity;
+  background: linear-gradient(to bottom, rgba(black, 0%), rgba(black, 25%));
+  transition: height 0.5s, opacity 0.5s;
+}
+
+// swiper
+@mixin swiper-buttons{
+  .swiper-button-prev{
+    &::after{
+      content: '';
+    }
+    border: 1px solid $primary;
+    border-radius: 50%;
+    color: $primary;
+    left: 50%;
+    top: 0;
+    transform: translate(-120%, 50%);
+  }
+
+  .swiper-button-next{
+    &::after{
+      content: '';
+    }
+    border: 1px solid $primary;
+    border-radius: 50%;
+    color: $primary;
+    top: 0;
+    left: 50%;
+    transform: translate(30%, 50%);
+  }
+
+  .swiper-button-disabled{
+    opacity: 1;
+    border: 1px solid $dark;
+    color: $dark;
+  }
+}
+
+@mixin swiper-card-coverflow{
+  border-radius: 24px;
+  border: 1px solid white;
+  background: linear-gradient(223deg, #fff 0%, rgba(255, 255, 255, 0.2) 100%);
+  backdrop-filter: blur(10px);
+  max-width: 368px;
+  img {
+    width: 56px;
+    height: 56px;
+  }
+  .card-title::after {
+    content: "";
+    width: 100px;
+    height: 6px;
+    background-color: $primary;
+    border-radius: 10px;
+    margin: 12px 0;
+  }
+
+  @media (max-width:992px) {
+    img{
+      width: 40px;
+      height: 40px;
+    }
+    .card-title::after{
+      width: 70px;
+      margin-top: 8px;
+    }
+  }
+}
+
+// deco
+@mixin red_comma {
+  content: "";
+  background-image: url("https://github.com/xuannn0915/CareForCook/blob/main/assets/images/home/comma.png?raw=true");
+  display: inline-block;
+  margin-left: 16px;
+  margin-bottom: 16px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 13px;
+  height: 21px;
+
+  @media (max-width: 992px) {
+    width: 10px;
+    height: 18px;
+    margin: 0 0 12px 12px;
+    left: 70%;
+  }
+}
+
+@mixin red_drop{
+    content: "";
+    background-image: url("https://raw.githubusercontent.com/xuannn0915/CareForCook/3ee479ba97444004513a11eb97cdddf7401af98f/assets/images/red_drop.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    width: 11px;
+    height: 16px;
+    margin-left: 8px;
+  }
+
+@mixin thumbsUp{
+  content: "";
+  background-image: url("https://raw.githubusercontent.com/xuannn0915/CareForCook/70215c4eab80e09f06675b703cb72369902d297c/assets/images/about/thumbUp.svg");
+  background-repeat: no-repeat;
+  display: block;
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  @media (max-width:992px) {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+
+// others
+@mixin page_title($desktop_link, $mobile_link){
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(0, 0, 0, 0.30) 100%), url($desktop_link);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+  
+    li.breadcrumb-item::before{
+      color: white;
+    } 
+  
+    @media (max-width:992px) {
+      background:linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(0, 0, 0, 0.30) 100%), url($mobile_link);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 200px;
+    }
+  }
+
+@mixin multiline-ellipsis($line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden; 
+}

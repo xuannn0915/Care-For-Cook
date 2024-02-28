@@ -29,6 +29,10 @@ import * as bootstrap from 'bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 
+// AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 // 內部引入SRC
 import App from './App.vue';
 import router from './router';
@@ -53,9 +57,11 @@ app.component('LoadingComponent', LoadingOverlay);
 app.use(VueAxios, axios);
 app.use(config);
 app.use(bootstrap);
-app.use(Swiper, SwiperSlide);
+app.component('swiper-wrapper', Swiper);
+app.component('swiper-slide', SwiperSlide);
 app.component('VForm', Form);
 app.component('VField', Field);
 app.component('ErrorMessage', ErrorMessage);
+AOS.init();
 
 app.mount('#app');

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row pt-7 pb-lg-9 pb-6">
         <router-link to="/" class="col-2 me-auto d-lg-inline-block d-none">
-          <img src="../../public/Footer/footer-logo.svg" alt="logo" />
+          <img src="../assets/images/Footer/footer-logo.svg" alt="logo" />
         </router-link>
         <div class="col-lg-2 d-lg-block d-none">
           <router-link to="/login" class="btn btn-outline-dark d-inline-flex"
@@ -43,28 +43,14 @@
           <ul class="d-flex">
             <li class="me-4">
               <a target="_blank" href="http://line.me/ti/p/@care4cook">
-                <img
-                  src="../../public/Footer/LINE.svg"
-                  alt="line"
-                  onmouseenter="src='../../public/Footer/LINE_hover.svg'"
-                  onmouseleave="src='../../public/Footer/LINE.svg'"
-                />
               </a>
             </li>
             <li class="me-4">
               <a target="_blank" href="https://www.facebook.com/care4cook">
-                <img src="../../public/Footer/FB.svg"
-                alt="facebook"
-                onmouseenter="src='../../public/Footer/FB_hover.svg'"
-                onmouseleave="src='../../public/Footer/FB.svg'" />
               </a>
             </li>
             <li>
               <a target="_blank" href="https://www.instagram.com/careforcook_2010/">
-                <img src="../../public/Footer/IG.svg"
-                alt="instagram"
-                onmouseenter="src='../../public/Footer/IG_hover.svg'"
-                onmouseleave="src='../../public/Footer/IG.svg'" />
               </a>
             </li>
           </ul>
@@ -86,6 +72,33 @@
   .footer-nav {
     .nav-link:hover {
       color: $primary;
+    }
+  }
+
+  .contact-info{
+    li:nth-child(1){
+      background-image: url(../assets/images/Footer/LINE.svg);
+      width: 48px;
+      height: 48px;
+      &:hover{
+        background-image: url(../assets/images/Footer/LINE_hover.svg);
+      }
+    }
+    li:nth-child(2){
+      background-image: url(../assets/images/Footer/FB.svg);
+      width: 48px;
+      height: 48px;
+      &:hover{
+        background-image: url(../assets/images/Footer/FB_hover.svg);
+      }
+    }
+    li:nth-child(3){
+      background-image: url(../assets/images/Footer/IG.svg);
+      width: 48px;
+      height: 48px;
+      &:hover{
+        background-image: url(../assets/images/Footer/IG_hover.svg);
+      }
     }
   }
 
