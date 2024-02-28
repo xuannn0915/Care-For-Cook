@@ -42,15 +42,15 @@
           <p class="mb-4">服務時間 ：08：30 ~ 17：30</p>
           <ul class="d-flex">
             <li class="me-4">
-              <a target="_blank" href="http://line.me/ti/p/@care4cook">
+              <a target="_blank" href="http://line.me/ti/p/@care4cook" class="d-block">
               </a>
             </li>
             <li class="me-4">
-              <a target="_blank" href="https://www.facebook.com/care4cook">
+              <a target="_blank" href="https://www.facebook.com/care4cook" class="d-block">
               </a>
             </li>
             <li>
-              <a target="_blank" href="https://www.instagram.com/careforcook_2010/">
+              <a target="_blank" href="https://www.instagram.com/careforcook_2010/" class="d-block">
               </a>
             </li>
           </ul>
@@ -77,27 +77,33 @@
 
   .contact-info{
     li:nth-child(1){
-      background-image: url(../assets/images/Footer/LINE.svg);
-      width: 48px;
-      height: 48px;
-      &:hover{
-        background-image: url(../assets/images/Footer/LINE_hover.svg);
+      a{
+        background-image: url(../assets/images/Footer/LINE.svg);
+        width: 48px;
+        height: 48px;
+        &:hover{
+          background-image: url(../assets/images/Footer/LINE_hover.svg);
+        }
       }
     }
     li:nth-child(2){
-      background-image: url(../assets/images/Footer/FB.svg);
-      width: 48px;
-      height: 48px;
-      &:hover{
-        background-image: url(../assets/images/Footer/FB_hover.svg);
-      }
+      a{
+        background-image: url(../assets/images/Footer/FB.svg);
+        width: 48px;
+        height: 48px;
+        &:hover{
+          background-image: url(../assets/images/Footer/FB_hover.svg);
+        }
+    }
     }
     li:nth-child(3){
-      background-image: url(../assets/images/Footer/IG.svg);
-      width: 48px;
-      height: 48px;
-      &:hover{
-        background-image: url(../assets/images/Footer/IG_hover.svg);
+      a{
+        background-image: url(../assets/images/Footer/IG.svg);
+        width: 48px;
+        height: 48px;
+        &:hover{
+          background-image: url(../assets/images/Footer/IG_hover.svg);
+        }
       }
     }
   }

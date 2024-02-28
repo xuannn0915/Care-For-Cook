@@ -73,7 +73,7 @@
   </main>
 
   <!-- 第二區：painpoint -->
-  <section class="painPoint py-lg-9 py-6">
+  <section class="painPoint py-9">
     <div class="container">
       <div class="row flex-lg-row flex-column-reverse align-items-center">
         <div class="col-lg-7">
@@ -98,13 +98,13 @@
           data-aos-duration="1500"
           data-aos-offset="100"
         >
-          <h2 class="text-dark fs-lg-2 fs-4 mb-lg-7 mb-4">你是否....</h2>
-          <p class="fs-lg-3 fs-5 mb-lg-7 mb-4">
+          <h2 class="text-dark fs-md-2 fs-3 mb-lg-7 mb-4">你是否....</h2>
+          <p class="fs-md-3 fs-5 mb-lg-7 mb-4">
             常煩惱三餐該怎麼辦？ <br />
             不知道該怎麼吃才能補充營養？<br />
             如果這正是你的心聲
           </p>
-          <h2 class="text-primary fw-bold fs-lg-2 fs-4">那你絕不能錯過照料理！</h2>
+          <h2 class="text-primary fw-bold fs-md-2 fs-4">那你絕不能錯過照料理！</h2>
         </div>
       </div>
     </div>
