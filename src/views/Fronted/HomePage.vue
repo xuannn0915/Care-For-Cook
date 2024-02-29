@@ -6,7 +6,7 @@
   >
     <!-- Swiper -->
     <swiper-wrapper
-      :spaceBetween="24"
+      :spaceBetween="16"
       :centeredSlides="true"
       :slidesPerView="2.5"
       :loop="true"
@@ -15,43 +15,18 @@
         disableOnInteraction: false,
       }"
       :breakpoints="{
-        // when window width is >= 320px
         320: {
           slidesPerView: 1.5,
-          spaceBetween: 20,
         },
-        // when window width is >= 992px
         992: {
           slidesPerView: 2.5,
-          spaceBetween: 30,
         },
       }"
       :modules="modules"
       class="swiper d-flex mx-lg-0"
     >
-      <swiper-slide class="swiper-slide" lazy="true">
-        <img src="../../../public/home/banner1.png" alt="banner" class="rounded" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide" lazy="true">
-        <img src="../../../public/home/banner2.png" alt="banner" class="rounded" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide" lazy="true">
-        <img src="../../../public/home/banner3.png" alt="banner" class="rounded" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src="../../../public/home/banner4.png" alt="banner" class="rounded" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src="../../../public/home/banner5.png" alt="banner" class="rounded" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src="../../../public/home/banner6.png" alt="banner" class="rounded" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src="../../../public/home/banner7.png" alt="banner" class="rounded" />
-      </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img src="../../../public/home/banner8.png" alt="banner" class="rounded" />
+      <swiper-slide v-for="(item, index) in banner" :key="index">
+        <img :src="item" alt="banner" class="rounded" />
       </swiper-slide>
     </swiper-wrapper>
     <div class="banner-wording">
@@ -77,20 +52,20 @@
     <div class="container">
       <div class="row flex-lg-row flex-column-reverse align-items-center">
         <div class="col-lg-7">
-            <img
-              src="../../../public/home/painpoint.svg"
-              alt="painpoint"
-              class="character d-lg-block d-none"
-              data-aos="fade-up"
-              data-aos-duration="1500"
-            />
-            <img
-              src="../../../public/home/painpoint_mobile.svg"
-              alt="painpoint"
-              class="character d-lg-none d-block"
-              data-aos="fade-up"
-              data-aos-duration="1500"
-            />
+          <img
+            src="../../../public/home/painpoint.svg"
+            alt="painpoint"
+            class="character d-lg-block d-none"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          />
+          <img
+            src="../../../public/home/painpoint_mobile.svg"
+            alt="painpoint"
+            class="character d-lg-none d-block"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          />
         </div>
         <div
           class="col-lg-4 ms-auto text-lg-start text-center mb-lg-0 mb-9"
@@ -109,15 +84,196 @@
       </div>
     </div>
   </section>
+
+  <!-- 第三區：service -->
+  <section class="service py-9">
+    <div id="tabs" data-aos="fade-up" data-aos-duration="1000">
+      <div class="container">
+        <div
+          class="section-title
+          d-flex flex-lg-row flex-column justify-content-between align-items-center mb-lg-7 mb-6"
+        >
+          <div class="text-lg-start text-center mb-lg-0 mb-6">
+            <h2 class="fw-bold text-primary mb-1 fs-md-2 fs-3">我們提供哪些服務</h2>
+            <subtitle class="fw-bold fs-md-4 fs-5"> 專業的態度，健康的食物 </subtitle>
+          </div>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <button
+                class="nav-link active show d-flex align-items-center px-6 py-3"
+                aria-current="page"
+                data-bs-toggle="tab"
+                data-bs-target="#product"
+              >
+                餐點介紹
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                data-bs-toggle="tab"
+                data-bs-target="#company"
+                class="nav-link d-flex align-items-center px-6 py-3"
+              >
+                公司介紹
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <swiper-wrapper
+            :spaceBetween="24"
+            :pagination="true"
+            :active="0"
+            :breakpoints="{
+              375: {
+                slidesPerView: 1.1,
+                spaceBetween: 16,
+              },
+              768: {
+                slidesPerView: 2.1,
+              },
+              992: {
+                slidesPerView: 3,
+              },
+            }"
+            :modules="modules"
+            class="product tab-pane fade show active"
+            id="product"
+          >
+            <swiper-slide class="item text-dark"
+            v-for="(item, index) in service.product" :key="index">
+              <div
+                class="pic-box text-center mb-2 rounded overflow-hidden position-relative"
+              >
+                <img :src="item.imgUrl" alt="customize" />
+              </div>
+              <div class="d-flex align-items-center justify-content-between px-2">
+                <div class="item-info">
+                  <div class="title fw-bold fs-4">{{ item.title }}</div>
+                  <p class="fs-5">{{ item.slogan }}</p>
+                </div>
+                <router-link :to="item.route">
+                  <button class="btn btn-outline-primary px-3 d-flex align-items-center">
+                    <span class="material-icons"> east </span>
+                  </button>
+                </router-link>
+              </div>
+            </swiper-slide>
+          </swiper-wrapper>
+          <swiper-wrapper
+            :spaceBetween="24"
+            :pagination="true"
+            :breakpoints="{
+              375: {
+                slidesPerView: 1.1,
+                spaceBetween: 16,
+              },
+              768: {
+                slidesPerView: 2.1,
+              },
+              992: {
+                slidesPerView: 3,
+              },
+            }"
+            :modules="modules"
+            class="company tab-pane fade"
+            id="company"
+          >
+            <swiper-slide v-for="(item, index) in service.company" :key="index">
+              <router-link
+                :to="item.route"
+                class="item d-inline-block position-relative"
+              >
+                <div class="pic-box text-center rounded overflow-hidden">
+                  <img :src="item.imgUrl" alt="service" />
+                </div>
+                <button
+                  class="btn text-white border-white
+                  position-absolute end-5 d-flex align-items-center px-3 z-4"
+                >
+                  <span class="material-icons"> east </span>
+                </button>
+                <div
+                  class="item-info text-white position-absolute px-6 py-4 bottom-0 start-0 z-3"
+                >
+                  <div class="title fw-bold fs-4">{{item.title}}</div>
+                  <p>{{ item.slogan }}</p>
+                </div>
+              </router-link>
+            </swiper-slide>
+          </swiper-wrapper>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第四區：comment -->
 </template>
 
 <script>
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 export default {
+  data() {
+    return {
+      banner: [
+        '../../../public/home/banner1.png',
+        '../../../public/home/banner2.png',
+        '../../../public/home/banner3.png',
+        '../../../public/home/banner4.png',
+        '../../../public/home/banner5.png',
+        '../../../public/home/banner6.png',
+        '../../../public/home/banner7.png',
+        '../../../public/home/banner8.png',
+      ],
+      service: {
+        product: [
+          {
+            imgUrl: '../../../public/home/客製照護餐.png',
+            title: '客製照護餐',
+            slogan: '悉心客製 x 完善修復',
+            route: '/category_customMeal',
+          },
+          {
+            imgUrl: '../../../public/home/高蛋白燉飲.png',
+            title: '高蛋白燉飲',
+            slogan: '全民健康 x 專業營養',
+            route: '/category_highProtein',
+          },
+          {
+            imgUrl: '../../../public/home/機能調理餐.png',
+            title: '機能調理餐',
+            slogan: '日常餐飲 x 營養元氣',
+            route: '/category_lunchBox',
+          },
+        ],
+        company: [
+          {
+            imgUrl: '../../../public/home/公司介紹-1.png',
+            title: '專業團隊分工',
+            slogan: '團隊精細分工，因為有各個崗位的專業，才能成就今日的美味料理',
+            route: '/about_brand',
+          },
+          {
+            imgUrl: '../../../public/home/公司介紹-2.png',
+            title: '嚴選在地食材',
+            slogan: '挑選具有安全認證的在地廠商，並選用無毒且友善環境的安心食材',
+            route: '/about_quality',
+          },
+          {
+            imgUrl: '../../../public/home/公司介紹-３.png',
+            title: '高規品管製程',
+            slogan: '在HACCP、ISO22000國際認證廠房生產，並堅守嚴格品質控管',
+            route: '/about_quality',
+          },
+        ],
+      },
+
+    };
+  },
   setup() {
     return {
-      modules: [Autoplay],
+      modules: [Autoplay, Pagination],
     };
   },
 };
@@ -131,7 +287,7 @@ export default {
     z-index: 1;
     width: 70%;
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       z-index: 2;
@@ -193,8 +349,10 @@ export default {
 
 .service {
   @include bg_secondary;
-  .active::after {
-    @include red_drop;
+  .nav-tabs {
+    .active::after {
+      @include red_drop;
+    }
   }
 
   h2::after {
@@ -214,6 +372,11 @@ export default {
         transition: margin-bottom 0.5s;
       }
     }
+    .btn {
+      opacity: 0;
+      top: 10%;
+      transition: all 0.5s;
+    }
 
     .item:hover {
       .pic-box::after {
@@ -225,12 +388,17 @@ export default {
           margin-bottom: 0;
         }
       }
+      .btn {
+        opacity: 1;
+        top: 5%;
+        transition: all 0.5s;
+      }
     }
   }
 
   .product {
     .pic-box::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       left: 0;
@@ -245,7 +413,7 @@ export default {
 
     .item:hover {
       .pic-box::after {
-        content: "餐點非完全符合每個客戶狀況，請評估自身狀況與餐點營養成分後再進行購買";
+        content: '請評估餐點營養與內容後再進行購買';
         color: $white;
         opacity: 1;
         padding: 0 48px;
@@ -255,6 +423,7 @@ export default {
 
   .swiper-pagination {
     position: relative;
+    margin-top: 24px;
     &-bullet {
       background-color: lighten($warning, 1%);
     }
@@ -321,8 +490,8 @@ export default {
 .home_slogan {
   padding-bottom: 124px;
   .wording::before {
-    content: "";
-    background-image: url("https://raw.githubusercontent.com/xuannn0915/CareForCook/32bb4620627ff5d81609d364c60615df4a545b62/assets/images/home/drop.svg");
+    content: '';
+    background-image: url('https://raw.githubusercontent.com/xuannn0915/CareForCook/32bb4620627ff5d81609d364c60615df4a545b62/assets/images/home/drop.svg');
     display: block;
     background-size: contain;
     margin-bottom: 40px;

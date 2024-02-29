@@ -135,157 +135,160 @@
         </ul>
       </div>
     </div>
-  </nav>
 
-  <!-- mobile navbar -->
-  <div class="position-relative">
-    <ul
-      class="mobile-menu collapse text-center w-100 vh-100
-      position-absolute start-0 top-100 accordion"
+    <!-- mobile navbar -->
+    <div
+      class="mobile-menu collapse d-lg-none position-absolute top-100 end-0 start-0"
       id="navbarNav"
       ref="mobileNavbar"
     >
-      <li class="mobile-nav-item nav-item border-0 border-bottom">
-        <div class="accordion-item">
-          <p class="accordion-header">
-            <span
-              class="nav-link text-center fs-4 py-4"
-              data-bs-toggle="collapse"
-              data-bs-target="#about"
-              aria-expanded="true"
-              aria-controls="collapseOne"
+      <div class="container vh-100">
+        <ul class="text-center accordion">
+          <li class="mobile-nav-item nav-item border-0 border-bottom">
+            <div class="accordion-item">
+              <p class="accordion-header">
+                <span
+                  class="nav-link text-center fs-4 py-4"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#about"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  關於照料理
+                </span>
+              </p>
+              <div
+                id="about"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingOne"
+                data-bs-parent="#navbarNav"
+              >
+                <ul
+                  class="accordion-body mb-3 pt-0 d-flex align-items-center justify-content-center"
+                >
+                  <li @click="href = this.$route.href">
+                    <router-link
+                      to="/about_brand"
+                      class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
+                      >品牌秉初心</router-link
+                    >
+                  </li>
+                  <li @click="href = this.$route.href">
+                    <router-link
+                      to="/about_quality"
+                      class="btn btn-pill bg-primary text-white py-1 px-3"
+                      >品質好安心</router-link
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="mobile-nav-item nav-item border-0 border-bottom">
+            <div class="accordion-item">
+              <p class="accordion-header">
+                <span
+                  class="nav-link text-center fs-4 py-4"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#category"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  好料報你知
+                </span>
+              </p>
+              <div
+                id="category"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingOne"
+                data-bs-parent="#navbarNav"
+              >
+                <ul
+                  class="accordion-body mb-3 pt-0 d-flex align-items-center justify-content-center"
+                >
+                  <li @click="href = this.$route.href">
+                    <router-link
+                      to="/category_customMeal"
+                      class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
+                      >客制照護餐</router-link
+                    >
+                  </li>
+                  <li @click="href = this.$route.href">
+                    <router-link
+                      to="/category_highProtein"
+                      class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
+                      @click="href = this.$route.href"
+                      >高蛋白燉飲</router-link
+                    >
+                  </li>
+                  <li @click="href = this.$route.href">
+                    <router-link
+                      to="/category_lunchBox"
+                      class="btn btn-pill bg-primary text-white py-1 px-3"
+                      @click="href = this.$route.href"
+                      >機能調理餐</router-link
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item border-bottom border-0" @click="href = this.$route.href">
+            <router-link to="/productsList" class="nav-link fs-4 py-4"
+              >線上買好料</router-link
             >
-              關於照料理
-            </span>
-          </p>
-          <div
-            id="about"
-            class="accordion-collapse collapse"
-            aria-labelledby="headingOne"
-            data-bs-parent="#navbarNav"
-          >
-            <ul class="accordion-body mb-3 pt-0 d-flex align-items-center justify-content-center">
-              <li @click="href=this.$route.href">
-                <router-link
-                  to="/about_brand"
-                  class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
-                  >品牌秉初心</router-link
-                >
-              </li>
-              <li @click="href=this.$route.href">
-                <router-link
-                  to="/about_quality"
-                  class="btn btn-pill bg-primary text-white py-1 px-3"
-                  >品質好安心</router-link
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </li>
+          </li>
 
-      <li class="mobile-nav-item nav-item border-0 border-bottom">
-        <div class="accordion-item">
-          <p class="accordion-header">
-            <span
-              class="nav-link text-center fs-4 py-4"
-              data-bs-toggle="collapse"
-              data-bs-target="#category"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-            >
-              好料報你知
-            </span>
-          </p>
-          <div
-            id="category"
-            class="accordion-collapse collapse"
-            aria-labelledby="headingOne"
-            data-bs-parent="#navbarNav"
-          >
-            <ul class="accordion-body mb-3 pt-0 d-flex align-items-center justify-content-center">
-              <li @click="href=this.$route.href">
-                <router-link
-                  to="/category_customMeal"
-                  class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
-                  >客制照護餐</router-link
+          <li class="mobile-nav-item nav-item border-0 border-bottom">
+            <div class="accordion-item">
+              <p class="accordion-header">
+                <span
+                  class="nav-link text-center fs-4 py-4"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#comment"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
                 >
-              </li>
-              <li @click="href=this.$route.href">
-                <router-link
-                  to="/category_highProtein"
-                  class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
-                  @click="href=this.$route.href"
-                  >高蛋白燉飲</router-link
+                  大家怎麼說
+                </span>
+              </p>
+              <div
+                id="comment"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingOne"
+                data-bs-parent="#navbarNav"
+              >
+                <ul
+                  class="accordion-body mb-3 pt-0 d-flex align-items-center justify-content-center"
                 >
-              </li>
-              <li @click="href=this.$route.href">
-                <router-link
-                  to="/category_lunchBox"
-                  class="btn btn-pill bg-primary text-white py-1 px-3"
-                  @click="href=this.$route.href"
-                  >機能調理餐</router-link
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </li>
+                  <li @click="href = this.$route.href">
+                    <router-link
+                      to="/news"
+                      class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
+                      >健康專欄</router-link
+                    >
+                  </li>
+                  <li @click="href = this.$route.href">
+                    <router-link
+                      to="/feedback"
+                      class="btn btn-pill bg-primary text-white py-1 px-3"
+                      >成功案例</router-link
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
 
-      <li class="nav-item border-bottom border-0" @click="href=this.$route.href">
-        <router-link
-          to="/productsList"
-          class="nav-link fs-4 py-4"
-          >線上買好料</router-link
-        >
-      </li>
-
-      <li class="mobile-nav-item nav-item border-0 border-bottom">
-        <div class="accordion-item">
-          <p class="accordion-header">
-            <span
-              class="nav-link text-center fs-4 py-4"
-              data-bs-toggle="collapse"
-              data-bs-target="#comment"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-            >
-              大家怎麼說
-            </span>
-          </p>
-          <div
-            id="comment"
-            class="accordion-collapse collapse"
-            aria-labelledby="headingOne"
-            data-bs-parent="#navbarNav"
-          >
-            <ul class="accordion-body mb-3 pt-0 d-flex align-items-center justify-content-center">
-              <li @click="href=this.$route.href">
-                <router-link
-                  to="/news"
-                  class="btn btn-pill bg-primary text-white py-1 px-3 me-2"
-                  >健康專欄</router-link
-                >
-              </li>
-              <li @click="href=this.$route.href">
-                <router-link
-                  to="/feedback"
-                  class="btn btn-pill bg-primary text-white py-1 px-3"
-                  >成功案例</router-link
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </li>
-
-      <li class="nav-item" @click="href=this.$route.href">
-        <router-link to="/notes" class="nav-link fs-4 py-4"
-          >料理怎麼買</router-link
-        >
-      </li>
-    </ul>
-  </div>
+          <li class="nav-item" @click="href = this.$route.href">
+            <router-link to="/notes" class="nav-link fs-4 py-4">料理怎麼買</router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -298,8 +301,7 @@ export default {
       href: null,
     };
   },
-  methods: {
-  },
+  methods: {},
   watch: {
     href() {
       this.mobileNavbar = new Collapse(this.$refs.mobileNavbar, {
@@ -358,6 +360,7 @@ export default {
       rgba(254, 227, 197, 0.1) 100%
     ),
     var(--white, #fff);
+  z-index: 998;
 
   a:hover,
   span:hover {

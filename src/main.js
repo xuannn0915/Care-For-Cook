@@ -28,6 +28,7 @@ import * as bootstrap from 'bootstrap';
 // swiper
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
+import 'swiper/css/pagination';
 
 // AOS
 import AOS from 'aos';

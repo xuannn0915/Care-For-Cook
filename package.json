@@ -20,7 +20,7 @@
     "material-icons": "^1.13.12",
     "pinia": "^2.1.7",
     "reset-css": "^5.0.2",
-    "swiper": "^11.0.6",
+    "swiper": "^11.0.7",
     "vee-validate": "^4.12.5",
     "vue": "^3.3.11",
     "vue-axios": "^3.5.2",
