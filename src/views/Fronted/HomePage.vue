@@ -218,49 +218,22 @@
         <div class="col-lg-8">
           <swiper-wrapper
           :spaceBetween="16"
-          :centeredSlides="true"
           :direction="'vertical'"
-          :slidesPerView="3.5"
           :loop="true"
+          :slidesPerView="3"
           :breakpoints="{
             320: {
               slidesPerView: 1.5,
             },
-            992: {
-              slidesPerView: 2.5,
-            },
           }"
           :modules="modules"
-      >
-            <swiper-slide class="rounded mb-4" v-for="(item, index) in comment" :key="index">
-              <router-link to="/feedback"
-                class="px-6 py-4 d-flex flex-lg-row flex-column"
-              >
-                <div
-                  class="user d-flex flex-lg-column flex-row
-                  me-lg-7 mb-lg-0 mb-2 align-items-lg-start align-items-center"
-                >
-                  <img
-                    :src="item.imgUrl"
-                    alt="avatar"
-                    class="mb-lg-1 me-lg-0 me-2"
-                  />
-                  <p class="fw-bold text-nowrap fs-5">{{item.name}}/{{ item.age }}</p>
-                  <span class="badge rounded-pill ms-auto d-lg-none d-block"
-                    >{{ item.tag }}</span
-                  >
-                </div>
-                <div class="wording w-100">
-                  <div
-                    class="d-lg-flex d-none justify-content-between align-items-center mb-4"
-                  >
-                    <span class="badge rounded-pill">{{ item.tag }}</span>
-                    <button type="button" class="btn btn-link">瞭解更多</button>
-                  </div>
-                  <p class="truncate">
-                  {{ item.content }}
-                  </p>
-                </div>
+          class="swiper"
+          >
+            <swiper-slide class="rounded mb-4 position-relative"
+            v-for="(item, index) in comment" :key="index">
+              <router-link to="/feedback">
+              <div class="mask position-absolute">
+              </div>
               </router-link>
             </swiper-slide>
           </swiper-wrapper>
@@ -351,7 +324,7 @@ export default {
           name: '張先生',
           age: '32歲',
           tag: '膽囊切除手術',
-          content: '管體中資程！子，強法娥縷回，蛇',
+          content: '管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇',
         },
         {
           imgUrl: '../../../public/home/avatar-2.svg',
@@ -570,9 +543,6 @@ export default {
 
   .swiper {
     max-height: 475px;
-    .swiper-wrapper {
-      height: 100%;
-    }
   }
 
   .swiper-slide {
@@ -596,7 +566,24 @@ export default {
         color: $white;
         border: 0px solid transparent;
       }
+      .mask{
+        right: 0;
+        background-color: rgba($color: #fff, $alpha: 0.5);
+        transition: all 0.5s;
+      }
     }
+  }
+
+  .mask{
+    position: absolute;
+    top: 0;
+    right: -100px;
+    width: 25%;
+    height: 100%;
+    background-color: rgba($color: #fff, $alpha: 0);
+    backdrop-filter: blur(10px);
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+    transition: all 0.5s;
   }
 
   .illustration {
