@@ -208,6 +208,83 @@
   </section>
 
   <!-- 第四區：comment -->
+  <section class="comment pt-lg-9 pt-6">
+    <div class="container">
+      <div class="text-center mb-7">
+        <h2 class="fw-bold text-primary mb-1 fs-lg-2 fs-3">其他人怎麼說</h2>
+        <subtitle class="fw-bold fs-lg-4 fs-5"> 他們這樣吃，熱情推薦你！ </subtitle>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <swiper-wrapper
+          :spaceBetween="16"
+          :centeredSlides="true"
+          :direction="'vertical'"
+          :slidesPerView="3.5"
+          :loop="true"
+          :breakpoints="{
+            320: {
+              slidesPerView: 1.5,
+            },
+            992: {
+              slidesPerView: 2.5,
+            },
+          }"
+          :modules="modules"
+      >
+            <swiper-slide class="rounded mb-4" v-for="(item, index) in comment" :key="index">
+              <router-link to="/feedback"
+                class="px-6 py-4 d-flex flex-lg-row flex-column"
+              >
+                <div
+                  class="user d-flex flex-lg-column flex-row
+                  me-lg-7 mb-lg-0 mb-2 align-items-lg-start align-items-center"
+                >
+                  <img
+                    :src="item.imgUrl"
+                    alt="avatar"
+                    class="mb-lg-1 me-lg-0 me-2"
+                  />
+                  <p class="fw-bold text-nowrap fs-5">{{item.name}}/{{ item.age }}</p>
+                  <span class="badge rounded-pill ms-auto d-lg-none d-block"
+                    >{{ item.tag }}</span
+                  >
+                </div>
+                <div class="wording w-100">
+                  <div
+                    class="d-lg-flex d-none justify-content-between align-items-center mb-4"
+                  >
+                    <span class="badge rounded-pill">{{ item.tag }}</span>
+                    <button type="button" class="btn btn-link">瞭解更多</button>
+                  </div>
+                  <p class="truncate">
+                  {{ item.content }}
+                  </p>
+                </div>
+              </router-link>
+            </swiper-slide>
+          </swiper-wrapper>
+        </div>
+        <div
+          class="col-lg-4 d-lg-flex flex-column align-items-center d-none position-relative"
+        >
+          <div class="swipe-button position-relative mt-5">
+            <span class="material-icons swiper-button-prev fs-2 p-6">
+              arrow_upward
+            </span>
+            <span class="material-icons swiper-button-next fs-2 p-6">
+              arrow_downward
+            </span>
+          </div>
+          <img
+            src="../../../public/home/其他人怎麼說＿插圖.svg"
+            alt="comment illustration"
+            class="illustration position-absolute start-50 translate-middle-x"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -268,7 +345,57 @@ export default {
           },
         ],
       },
-
+      comment: [
+        {
+          imgUrl: '../../../public/home/avatar-1.svg',
+          name: '張先生',
+          age: '32歲',
+          tag: '膽囊切除手術',
+          content: '管體中資程！子，強法娥縷回，蛇',
+        },
+        {
+          imgUrl: '../../../public/home/avatar-2.svg',
+          name: '張先生',
+          age: '32歲',
+          tag: '膽囊切除手術',
+          content: '管體中資程！子，強法娥縷回，蛇',
+        },
+        {
+          imgUrl: '../../../public/home/avatar-3.svg',
+          name: '張先生',
+          age: '32歲',
+          tag: '膽囊切除手術',
+          content: '管體中資程！子，強法娥縷回，蛇',
+        },
+        {
+          imgUrl: '../../../public/home/avatar-4.svg',
+          name: '張先生',
+          age: '32歲',
+          tag: '膽囊切除手術',
+          content: '管體中資程！子，強法娥縷回，蛇',
+        },
+        {
+          imgUrl: '../../../public/home/avatar-5.svg',
+          name: '張先生',
+          age: '32歲',
+          tag: '膽囊切除手術',
+          content: '管體中資程！子，強法娥縷回，蛇',
+        },
+        {
+          imgUrl: '../../../public/home/avatar-6.svg',
+          name: '張先生',
+          age: '32歲',
+          tag: '膽囊切除手術',
+          content: '管體中資程！子，強法娥縷回，蛇',
+        },
+        {
+          imgUrl: '../../../public/home/avatar-7.svg',
+          name: '張先生',
+          age: '32歲',
+          tag: '膽囊切除手術',
+          content: '管體中資程！子，強法娥縷回，蛇',
+        },
+      ],
     };
   },
   setup() {
