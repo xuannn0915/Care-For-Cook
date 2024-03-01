@@ -210,17 +210,18 @@
   <!-- 第四區：comment -->
   <section class="comment pt-lg-9 pt-6">
     <div class="container">
-      <div class="text-center mb-7">
-        <h2 class="fw-bold text-primary mb-1 fs-lg-2 fs-3">其他人怎麼說</h2>
-        <subtitle class="fw-bold fs-lg-4 fs-5"> 他們這樣吃，熱情推薦你！ </subtitle>
-      </div>
       <div class="row">
         <div class="col-lg-8">
           <swiper-wrapper
           :spaceBetween="16"
           :direction="'vertical'"
-          :loop="true"
           :slidesPerView="3"
+          :freeMode="true"
+          :autoplay="{
+            delay: 5000,
+            disableOnInteraction: false,
+          }"
+          :loop="true"
           :breakpoints="{
             320: {
               slidesPerView: 1.5,
@@ -229,26 +230,33 @@
           :modules="modules"
           class="swiper"
           >
-            <swiper-slide class="rounded mb-4 position-relative"
-            v-for="(item, index) in comment" :key="index">
+            <swiper-slide class="swiper-slide rounded position-relative p-5 overflow-hidden"
+            v-for="(item, index) in comment" :key="index" style="height:150px">
               <router-link to="/feedback">
-              <div class="mask position-absolute">
-              </div>
+                <div class="mb-2 d-flex align-items-center">
+                <span class="badge fw-bold me-3">
+                {{ item.tag }}
+                </span>
+                <p class="fw-bold">{{ item.name }} / {{ item.age }}</p>
+                </div>
+                <p class="truncate">
+                {{ item.content }}
+                </p>
               </router-link>
+              <div class="avatar d-flex align-items-center">
+                <img :src="item.imgUrl" alt="">
+                <span class="material-icons text-white fs-1 ms-2">east</span>
+              </div>
             </swiper-slide>
           </swiper-wrapper>
         </div>
         <div
           class="col-lg-4 d-lg-flex flex-column align-items-center d-none position-relative"
         >
-          <div class="swipe-button position-relative mt-5">
-            <span class="material-icons swiper-button-prev fs-2 p-6">
-              arrow_upward
-            </span>
-            <span class="material-icons swiper-button-next fs-2 p-6">
-              arrow_downward
-            </span>
-          </div>
+        <div class="text-center mb-7">
+        <h2 class="fw-bold text-primary mb-1 fs-lg-2 fs-3">其他人怎麼說</h2>
+        <subtitle class="fw-bold fs-lg-4 fs-5"> 他們這樣吃，熱情推薦你！ </subtitle>
+      </div>
           <img
             src="../../../public/home/其他人怎麼說＿插圖.svg"
             alt="comment illustration"
@@ -331,7 +339,7 @@ export default {
           name: '張先生',
           age: '32歲',
           tag: '膽囊切除手術',
-          content: '管體中資程！子，強法娥縷回，蛇',
+          content: '管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇',
         },
         {
           imgUrl: '../../../public/home/avatar-3.svg',
@@ -548,9 +556,18 @@ export default {
   .swiper-slide {
     background: rgba(254, 227, 197, 0.2);
     border: 1px solid transparent;
-    img {
-      width: 60px;
-      height: 60px;
+    height: 150px;
+
+    &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100px;
+    width: 30%;
+    height: 100%;
+    background-color: transparent;
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+    transition: all 0.5s;
     }
 
     .truncate {
@@ -558,32 +575,32 @@ export default {
       @include multiline-ellipsis(2);
     }
 
+    .avatar{
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      width: 150px;
+      transition: all 0.5s;
+    }
+
     &:hover {
       border: 1px solid $warning;
-      background: rgba(255, 180, 69, 0.3);
       .badge {
-        background-color: $primary;
-        color: $white;
-        border: 0px solid transparent;
+        color: $primary;
+        border-color: $primary;
       }
-      .mask{
-        right: 0;
-        background-color: rgba($color: #fff, $alpha: 0.5);
+      &::before{
+      right: 0;
+      background-color: $warning;
+      transition: all 0.5s;
+      }
+      .avatar{
+        right: 10%;
+        opacity: 1;
         transition: all 0.5s;
       }
     }
-  }
-
-  .mask{
-    position: absolute;
-    top: 0;
-    right: -100px;
-    width: 25%;
-    height: 100%;
-    background-color: rgba($color: #fff, $alpha: 0);
-    backdrop-filter: blur(10px);
-    clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
-    transition: all 0.5s;
   }
 
   .illustration {
