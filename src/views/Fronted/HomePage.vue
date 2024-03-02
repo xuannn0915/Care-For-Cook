@@ -215,12 +215,7 @@
           <swiper-wrapper
           :spaceBetween="16"
           :direction="'vertical'"
-          :slidesPerView="3"
-          :freeMode="true"
-          :autoplay="{
-            delay: 5000,
-            disableOnInteraction: false,
-          }"
+          :slidesPerView="3.2"
           :loop="true"
           :breakpoints="{
             320: {
@@ -230,8 +225,8 @@
           :modules="modules"
           class="swiper"
           >
-            <swiper-slide class="swiper-slide rounded position-relative p-5 overflow-hidden"
-            v-for="(item, index) in comment" :key="index" style="height:150px">
+            <swiper-slide class="swiper-slide rounded position-relative overflow-hidden p-5"
+            v-for="(item, index) in comment" :key="index" style="max-height:130px">
               <router-link to="/feedback">
                 <div class="mb-2 d-flex align-items-center">
                 <span class="badge fw-bold me-3">
@@ -242,11 +237,11 @@
                 <p class="truncate">
                 {{ item.content }}
                 </p>
+                <div class="avatar d-flex align-items-center">
+                  <img :src="item.imgUrl" alt="">
+                  <span class="material-icons text-white fs-1 ms-2">east</span>
+                </div>
               </router-link>
-              <div class="avatar d-flex align-items-center">
-                <img :src="item.imgUrl" alt="">
-                <span class="material-icons text-white fs-1 ms-2">east</span>
-              </div>
             </swiper-slide>
           </swiper-wrapper>
         </div>
@@ -332,7 +327,7 @@ export default {
           name: '張先生',
           age: '32歲',
           tag: '膽囊切除手術',
-          content: '管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇',
+          content: '管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇管體中資程！子，強法娥縷回，蛇',
         },
         {
           imgUrl: '../../../public/home/avatar-2.svg',
