@@ -208,20 +208,19 @@
   </section>
 
   <!-- 第四區：comment -->
-  <section class="comment pt-lg-9 pt-6">
+  <section class="comment pt-9">
     <div class="container">
-      <div class="row">
+      <div class="row flex-lg-row flex-column-reverse">
         <div class="col-lg-8">
           <swiper-wrapper
           :spaceBetween="16"
           :direction="'vertical'"
-          :slidesPerView="3.2"
-          :loop="true"
-          :breakpoints="{
-            320: {
-              slidesPerView: 1.5,
-            },
+          :slidesPerView="3"
+          :autoplay="{
+            delay: 5000,
+            disableOnInteraction: false,
           }"
+          :loop="true"
           :modules="modules"
           class="swiper"
           >
@@ -239,28 +238,53 @@
                 </p>
                 <div class="avatar d-flex align-items-center">
                   <img :src="item.imgUrl" alt="">
-                  <span class="material-icons text-white fs-1 ms-2">east</span>
+                  <span class="material-icons text-white fs-1 ms-lg-2">east</span>
                 </div>
               </router-link>
             </swiper-slide>
           </swiper-wrapper>
         </div>
         <div
-          class="col-lg-4 d-lg-flex flex-column align-items-center d-none position-relative"
+          class="col-lg-4 d-flex flex-lg-column
+          align-items-center justify-content-between"
         >
-        <div class="text-center mb-7">
+        <div class="text-lg-center mb-7">
         <h2 class="fw-bold text-primary mb-1 fs-lg-2 fs-3">其他人怎麼說</h2>
         <subtitle class="fw-bold fs-lg-4 fs-5"> 他們這樣吃，熱情推薦你！ </subtitle>
       </div>
           <img
             src="../../../public/home/其他人怎麼說＿插圖.svg"
             alt="comment illustration"
-            class="illustration position-absolute start-50 translate-middle-x"
+            class="character"
           />
         </div>
       </div>
     </div>
   </section>
+
+  <!-- 第五區：home_slogan -->
+
+  <section class="home_slogan pt-9 mb-10">
+      <div class="container">
+        <div class="row">
+          <div class="col-8 mx-auto wording text-center d-flex flex-column align-items-center">
+            <h2 class="fw-bold text-primary mb-1 fs-lg-2 fs-3 position-relative">
+              照料理，用心照料你
+            </h2>
+            <subtitle class="fw-bold fs-lg-4 fs-5 mb-lg-6 mb-4">
+              忽略的平淡，料理你日常的不簡單
+            </subtitle>
+          <p class="fs-lg-5 fs-6 mb-lg-8 mb-6">我們傳遞專業美味，引領健康生活。快速輕鬆了解我們的優質服務</p>
+          <div class="d-flex align-items-center">
+            <router-link to="/notes"
+            class="btn btn-outline-primary me-lg-6 me-4 text-nowrap">懶人購物包</router-link>
+            <router-link to="/productsList" class="btn btn-primary text-nowrap">線上購物
+            </router-link>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
 </template>
 
 <script>
@@ -598,26 +622,23 @@ export default {
     }
   }
 
-  .illustration {
+  .character {
     width: 286px;
-    bottom: -8px;
   }
 
   @media (max-width: 992px) {
-    .swiper-slide {
-      img {
-        width: 48px;
-        height: 48px;
-      }
+    .character{
+      width: 25%;
     }
   }
 }
 
 .home_slogan {
   padding-bottom: 124px;
+
   .wording::before {
     content: '';
-    background-image: url('https://raw.githubusercontent.com/xuannn0915/CareForCook/32bb4620627ff5d81609d364c60615df4a545b62/assets/images/home/drop.svg');
+    background-image: url(../../assets/images/drop.svg);
     display: block;
     background-size: contain;
     margin-bottom: 40px;

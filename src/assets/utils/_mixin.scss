@@ -4,8 +4,8 @@
 }
 
 @mixin bg_wave($desktop_place, $mobile_place) {
-  background-image: url("https://raw.githubusercontent.com/xuannn0915/CareForCook/e4ca5a23e7f99ecbc70a5224b65522239e92a972/assets/images/home/bottom_lineargrdient-1.svg"),
-    url("https://raw.githubusercontent.com/xuannn0915/CareForCook/e4ca5a23e7f99ecbc70a5224b65522239e92a972/assets/images/home/bottom_lineargrdient-2.svg");
+  background-image: url(../../../public/home/Wave01.svg),
+    url(../../../public/home/Wave02.svg);
   display: block;
   background-repeat: no-repeat;
   background-size: contain;
