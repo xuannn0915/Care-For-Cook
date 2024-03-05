@@ -6,7 +6,7 @@
           <img src="../assets/images/Footer/footer-logo.svg" alt="logo" />
         </router-link>
         <div class="col-lg-2 d-lg-block d-none">
-          <router-link to="/login" class="btn btn-outline-dark d-inline-flex"
+          <router-link to="/admin" class="btn btn-outline-dark d-inline-flex"
             >後台登入
             <span class="material-icons ms-2"> east </span>
           </router-link>

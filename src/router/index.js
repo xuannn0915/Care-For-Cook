@@ -98,7 +98,7 @@ const routes = [
     component: () => import('../views/DashBoard/BackStage.vue'),
     children: [
       {
-        path: '/productList',
+        path: '/admin',
         name: 'BackStage_ProductList',
         component: () => import('../views/DashBoard/BackStage_ProductList.vue'),
       },
