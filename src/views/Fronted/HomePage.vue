@@ -141,7 +141,7 @@
             id="product"
           >
             <swiper-slide class="item text-dark"
-            v-for="(item, index) in service.product" :key="index">
+            v-for="(item, index) in service.product" :key="index" >
               <div
                 class="pic-box text-center mb-2 rounded overflow-hidden position-relative"
               >
@@ -249,8 +249,8 @@
           align-items-center justify-content-between"
         >
         <div class="text-lg-center mb-7">
-        <h2 class="fw-bold text-primary mb-1 fs-lg-2 fs-3">其他人怎麼說</h2>
-        <subtitle class="fw-bold fs-lg-4 fs-5"> 他們這樣吃，熱情推薦你！ </subtitle>
+        <h2 class="fw-bold text-primary mb-1 fs-md-2 fs-3">其他人怎麼說</h2>
+        <subtitle class="fw-bold fs-md-4 fs-5"> 他們這樣吃，熱情推薦你！ </subtitle>
       </div>
           <img
             src="../../../public/home/其他人怎麼說＿插圖.svg"
@@ -569,7 +569,7 @@ export default {
   }
 
   .swiper {
-    max-height: 475px;
+    max-height: 400px;
   }
 
   .swiper-slide {
@@ -623,7 +623,7 @@ export default {
   }
 
   .character {
-    width: 286px;
+    width: 250px;
   }
 
   @media (max-width: 992px) {
