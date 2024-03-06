@@ -37,11 +37,6 @@ export default {
         this.$router.push('/login');
       }
     },
-    signout() {
-      document.cookie = 'CareForCookToken=;expires=;';
-      alert('token 已清除');
-      this.$router.push('/');
-    },
   },
   components: {
     BackstageSidebar,

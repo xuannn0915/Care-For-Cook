@@ -68,7 +68,7 @@ export default {
           const { expired, token } = res.data;
           document.cookie = `CareForCookToken = ${token}; expires = ${new Date(expired)}`;
           alert(res.data.message);
-          this.$router.push('./admin');
+          this.$router.push('/orders');
         })
         .catch((err) => {
           if (this.username === '' || this.password === '') {

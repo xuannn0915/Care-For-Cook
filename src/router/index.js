@@ -98,9 +98,29 @@ const routes = [
     component: () => import('../views/DashBoard/BackStage.vue'),
     children: [
       {
-        path: '/admin',
+        path: '/orders',
+        name: 'BackStage_OrderList',
+        component: () => import('../views/DashBoard/BackStage_OrderList.vue'),
+      },
+      {
+        path: '/products',
         name: 'BackStage_ProductList',
         component: () => import('../views/DashBoard/BackStage_ProductList.vue'),
+      },
+      {
+        path: '/articles',
+        name: 'BackStage_ArticleList',
+        component: () => import('../views/DashBoard/BackStage_ArticleList.vue'),
+      },
+      {
+        path: '/comments',
+        name: 'BackStage_CommentList',
+        component: () => import('../views/DashBoard/BackStage_CommentList.vue'),
+      },
+      {
+        path: '/contacts',
+        name: 'BackStage_ContactList',
+        component: () => import('../views/DashBoard/BackStage_ContactList.vue'),
       },
     ],
   },
