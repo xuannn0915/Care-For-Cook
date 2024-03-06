@@ -1,8 +1,11 @@
 <template>
+  <BackstageSidebar></BackstageSidebar>
   <router-view v-if="checkSuccess"></router-view>
 </template>
 
 <script>
+import BackstageSidebar from '../../components/BackStage_Sidebar.vue';
+
 const { VITE_URL } = import.meta.env;
 
 export default {
@@ -40,8 +43,17 @@ export default {
       this.$router.push('/');
     },
   },
+  components: {
+    BackstageSidebar,
+  },
   mounted() {
     this.checkUser();
   },
 };
 </script>
+
+<style lang="scss">
+body {
+  padding:0 !important;
+}
+</style>
