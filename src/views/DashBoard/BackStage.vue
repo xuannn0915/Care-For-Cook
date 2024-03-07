@@ -1,6 +1,10 @@
 <template>
-  <BackstageSidebar></BackstageSidebar>
-  <router-view v-if="checkSuccess"></router-view>
+  <div class="d-flex">
+    <BackstageSidebar></BackstageSidebar>
+    <div class="w-100 p-lg-6 p-4">
+      <router-view v-if="checkSuccess"></router-view>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -50,5 +54,6 @@ export default {
 <style lang="scss">
 body {
   padding:0 !important;
+  background-color: #f5f5f5;
 }
 </style>

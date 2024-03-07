@@ -122,6 +122,11 @@ const routes = [
         name: 'BackStage_ContactList',
         component: () => import('../views/DashBoard/BackStage_ContactList.vue'),
       },
+      {
+        path: '/upload',
+        name: 'BackStage_Upload',
+        component: () => import('../views/DashBoard/BackStage_Upload.vue'),
+      },
     ],
   },
 ];
