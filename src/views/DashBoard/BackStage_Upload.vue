@@ -1,6 +1,6 @@
 <template>
   <h2 class="text-center">圖片上傳</h2>
-  <form action="#">
+  <form action="#" class="mb-5">
     <input
       type="file"
       class="form-control border-0"
@@ -9,6 +9,28 @@
       @change="upload"
     />
   </form>
+    <div class="table-responsive">
+      <div class="overflow-x-scroll">
+        <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">圖片</th>
+            <th scope="col">圖片網址</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(pic, index) in picData" :key="index">
+            <td>
+              <img :src="pic" alt="" style="height:100px" class="w-auto" />
+            </td>
+            <td>
+              {{ pic }}
+            </td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
 </template>
 
 <script>
@@ -18,6 +40,8 @@ export default {
   data() {
     return {
       file: null,
+      pics: [],
+      picData: [],
     };
   },
   methods: {
@@ -27,11 +51,16 @@ export default {
       this.$http
         .post(`${VITE_URL}/v2/api/${VITE_PATH}/admin/upload`, formData)
         .then((res) => {
-          console.log(res);
+          this.pics.push(res.data.imageUrl);
+          localStorage.setItem('myPics', JSON.stringify(this.pics));
+          this.renderPic();
         })
         .catch((err) => {
           console.log(err);
         });
+    },
+    renderPic() {
+      this.picData = JSON.parse(localStorage.getItem('myPics'));
     },
   },
   mounted() {

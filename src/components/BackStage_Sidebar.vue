@@ -16,8 +16,10 @@
         >
           <span class="material-icons align-bottom"> menu </span>
         </button>
-        <img src="../assets/images/logo.svg" alt="logo"
-        class="logo collapse collapse-horizontal multi-collapse"/>
+        <router-link to="/">
+          <img src="../assets/images/logo.svg" alt="logo"
+          class="logo collapse collapse-horizontal multi-collapse"/>
+        </router-link>
       </div>
 
       <ul class="collapse collapse-horizontal overflow-hidden multi-collapse">
@@ -85,6 +87,7 @@ export default {
   data() {
     return {
       sidebar: null,
+      sidebarStatus: false,
     };
   },
   methods: {
@@ -96,6 +99,8 @@ export default {
     toggleLogo() {
       const sidebarTop = document.querySelector('.sidebar-top');
       sidebarTop.classList.toggle('justify-content-between');
+      this.sidebarStatus = !this.sidebarStatus;
+      this.$emit('toggleSidebar', this.sidebarStatus);
     },
   },
 };
